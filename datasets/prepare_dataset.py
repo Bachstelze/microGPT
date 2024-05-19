@@ -13,7 +13,8 @@ tokenizer = GPT2TokenizerFast(
     padding_side="left",
 )
 
-dataset = load_dataset("JeanKaddour/minipile")
+#dataset = load_dataset("JeanKaddour/minipile")
+dataset = load_dataset("karpathy/tiny_shakespeare")
 
 def process(data):
     inpt = tokenizer(data['text'])
