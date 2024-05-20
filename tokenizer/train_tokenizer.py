@@ -10,7 +10,7 @@ from tokenizers import (
 
 # parameters
 num_proc=4 # Number of processes when downloading and generating the dataset locally
-vocab_size=8192
+vocab_size=16384
 file_path="tokenizer/tokenizer.json"
 
 def preprocess_text(data):
@@ -21,8 +21,8 @@ def get_training_corpus(dataset):
     for i in range(0, len(dataset), 10000):
         yield dataset[i : i + 100]["text"]
 
-#dataset = load_dataset("beratcmn/minipile-2048")
-dataset = load_dataset("karpathy/tiny_shakespeare")["train"]
+dataset = load_dataset("beratcmn/minipile-2048")
+#dataset = load_dataset("karpathy/tiny_shakespeare")["train"]
 dataset = dataset.map(preprocess_text, num_proc=num_proc)
 
 tokenizer = Tokenizer(models.BPE())
