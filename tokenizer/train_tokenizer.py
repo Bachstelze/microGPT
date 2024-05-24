@@ -21,7 +21,8 @@ def get_training_corpus(dataset):
     for i in range(0, len(dataset), 10000):
         yield dataset[i : i + 100]["text"]
 
-dataset = load_dataset("beratcmn/minipile-2048")["train"]
+dataset = load_dataset("JeanKaddour/minipile")["train"]
+#dataset = load_dataset("beratcmn/minipile-2048")["train"]
 #dataset = load_dataset("karpathy/tiny_shakespeare")["train"]
 dataset = dataset.map(preprocess_text, num_proc=num_proc)
 
